@@ -1,6 +1,7 @@
 {
   "name": "frontend-contrast-guard",
   "version": "0.4.0",
+  "private": true,
   "description": "前端工程、视觉与色彩全栈守卫：静态查色彩配对、渲染后查视觉程度、4阶多视口与盒模型规范，串联前端插件、工具与开发库。",
   "type": "module",
   "bin": {
