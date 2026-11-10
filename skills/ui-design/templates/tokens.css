@@ -1,0 +1,81 @@
+/*
+ * tokens 示例 —— 仅示意结构，数值必须来自本项目 DESIGN.md 选定的方向。
+ * 原始色阶（primitive）→ 语义层（semantic）→ 组件只引用语义层。
+ * 新增 token 先在 DESIGN.md「决策记录」补一行。
+ */
+
+:root {
+  /* ---- primitive：色阶（OKLCH） ---- */
+  --palette-neutral-0: oklch(99% 0.005 250);
+  --palette-neutral-100: oklch(95% 0.008 250);
+  --palette-neutral-500: oklch(60% 0.015 250);
+  --palette-neutral-900: oklch(22% 0.02 250);
+  --palette-neutral-950: oklch(16% 0.02 250);
+  --palette-accent-500: oklch(62% 0.17 35);
+  --palette-accent-300: oklch(78% 0.12 35);
+
+  /* ---- semantic：light ---- */
+  --color-bg: var(--palette-neutral-0);
+  --color-surface: var(--palette-neutral-100);
+  --color-text: var(--palette-neutral-900);
+  --color-text-muted: var(--palette-neutral-500);
+  --color-accent: var(--palette-accent-500);
+  --color-on-accent: var(--palette-neutral-0);
+  --color-focus-ring: var(--palette-accent-500);
+
+  /* ---- type scale ---- */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: var(--font-sans);
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.563rem;
+  --text-2xl: 1.953rem;
+  --text-3xl: 2.441rem;
+  --leading-body: 1.6;
+  --leading-tight: 1.2;
+
+  /* ---- spacing（4px 基准） ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* ---- radius / shadow ---- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px oklch(0% 0 0 / 0.06);
+  --shadow-md: 0 4px 16px oklch(0% 0 0 / 0.08);
+
+  /* ---- motion ---- */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 360ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.3, 0, 0, 1.2);
+}
+
+/* ---- semantic：dark（DESIGN.md 声明支持暗色时才需要） ---- */
+:root[data-theme="dark"] {
+  --color-bg: var(--palette-neutral-950);
+  --color-surface: var(--palette-neutral-900);
+  --color-text: var(--palette-neutral-100);
+  --color-text-muted: var(--palette-neutral-500);
+  --color-accent: var(--palette-accent-300);
+  --color-on-accent: var(--palette-neutral-950);
+  --color-focus-ring: var(--palette-accent-300);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}

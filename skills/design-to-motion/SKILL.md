@@ -5,7 +5,7 @@ version: 1.0.0
 license: MIT (上游 https://github.com/elayadesign/ai-design-skills)
 ---
 
-通用前端研发唯一入口：[Frontend Flow](https://github.com/webkubor/frontend-contrast-guard/blob/main/docs/frontend-flow.md)。项目品牌、组件库、域名和发布规则从项目读取。
+通用前端研发唯一入口：[ui-design](../ui-design/SKILL.md)。项目品牌、组件库、域名和发布规则从项目读取。
 
 
 # Design to Motion
@@ -20,7 +20,7 @@ This skill has three parts. **Part A** rebuilds the design so the finished frame
 
 ## Scope
 
-Apply to any request to animate a static design: Figma frames, UI cards, dashboards, app screens, marketing heroes, product mockups, and designs placed on a photo background. Project requirements and the Frontend Flow take precedence over this recipe. When the user's explicit prompt conflicts with a rule, the user wins.
+Apply to any request to animate a static design: Figma frames, UI cards, dashboards, app screens, marketing heroes, product mockups, and designs placed on a photo background. Project requirements and the ui-design entry skill take precedence over this recipe. When the user's explicit prompt conflicts with a rule, the user wins.
 
 **Not for** interaction motion inside a shipping product (hovers, menus, toasts). For that, use a product motion skill such as [emilkowalski/skills](https://github.com/emilkowalski/skills). **Companion skill:** `landing-page-design` in this repo, when the animation will live on a landing page.
 

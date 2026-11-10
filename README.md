@@ -27,7 +27,7 @@
 
 ## 前端研发唯一 Flow
 
-本仓同时维护通用前端方法与执行工具。完整入口是 [前端研发 Flow](docs/frontend-flow.md)：定义任务 → 设计/还原 → 实现 → 比对修复 → 验收 → 交付。按需使用 [skills](skills/)；新增 `ui-restore` 处理 PRD 原图/截图还原，并检查 CSS 来源与影响面。
+本仓同时维护通用前端方法与执行工具。完整入口是 [ui-design 阶段总纲](docs/ui-design.md)：定义任务 → 设计/还原 → 实现 → 比对修复 → 验收 → 交付。按需使用 [skills](skills/)；新增 `ui-restore` 处理 PRD 原图/截图还原，并检查 CSS 来源与影响面。
 
 具体品牌、风格、域名、账号和部署约定属于各项目；CS 仅引用本仓。skills 从 Git 仓分发，npm CLI 的发布边界保持 `src/docs`。安装副本不得成为第二份真源。
 
@@ -269,7 +269,7 @@ contrast-guard measure --baselines                        # 列出基线
 
 ## skills/：前端工程技能库
 
-仓库自带一套前端工程 skill（`skills/<name>/SKILL.md`），与本 CLI 的检查、计量、评审构成同一体系——工具管「机器能判的」，skill 沉淀「人怎么做」。阶段路由与项目资产归属的总纲见 [前端研发 Flow](docs/frontend-flow.md)：本仓是通用前端方法的唯一真源，Flow 组织阶段、skills 提供按需方法、CLI 提供测量与证据检查：
+仓库自带一套前端工程 skill（`skills/<name>/SKILL.md`），与本 CLI 的检查、计量、评审构成同一体系——工具管「机器能判的」，skill 沉淀「人怎么做」。阶段路由与项目资产归属的总纲见 [ui-design 阶段总纲](docs/ui-design.md)：本仓是通用前端方法的唯一真源，Flow 组织阶段、skills 提供按需方法、CLI 提供测量与证据检查：
 
 | skill | 干什么 |
 |---|---|
@@ -280,6 +280,7 @@ contrast-guard measure --baselines                        # 列出基线
 | `design-to-motion` | 静态设计稿（Figma/截图）转像素级动效 HTML 复刻 |
 | `frontend-e2e` | 页面完成度与对齐 PRD 的结构化浏览器验收，ego-browser + agent-eyes 取证 |
 | `landing-page-design` | 高转化落地页完整体系：结构、文案、转化链路 |
+| `ui-design` | **UI 设计唯一入口**：先找项目 DESIGN.md / tokens，没有就定方向（差异化 + GEO + owner 拍板）→ 落盘 → 工程接线 → 只用 tokens 实现 → 验收 |
 | `ui-review` | 把「丑」翻译成可执行整改条目：计量 + 截图对照成因清单 |
 | `ui-restore` | 从 Figma/PRD/截图还原 UI，双证据定位视觉缺陷根因 |
 

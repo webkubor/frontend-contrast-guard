@@ -18,7 +18,7 @@ contrast-guard —— 把配色对比度做成 CI 护栏的 CLI：支持 OKLCH�
 
 ## 前端方法唯一入口
 
-- 先读 `docs/frontend-flow.md`，按需加载 `skills/`。判定真源为 `docs/frontend-review-standard.md`。
+- 入口 skill 是 `skills/ui-design/SKILL.md`（阶段总纲 `docs/ui-design.md`），按需加载 `skills/`。判定真源为 `docs/frontend-review-standard.md`。
 - 全局方法仅描述工程过程；品牌风格、项目路径/域名、环境账号与发布纪律在所属项目维护。
 - 不向 CS 或安装目录复制规则正文；修改本仓真源，并检查 Flow/规范/skills 引用一致。
 - CLI、setup 与 skills 是不同层：本次方法迁移不改变 npm 包发布范围或自动安装副作用。

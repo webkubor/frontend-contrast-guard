@@ -6,8 +6,9 @@
 
 ### Added
 
+- **`frontend-flow` 重建为 `ui-design` 2.0.0**（`skills/ui-design/`；`docs/frontend-flow.md` → `docs/ui-design.md`）：UI 设计与前端页面唯一入口，交付工程化、可观测、可维护的网站。Step 0 硬性前置先找项目 DESIGN.md / tokens，有则服从、不重选风格；没有则 Step 1 定方向（竞品扫描、可记忆点、换名测试、AI 模板味一票否决、GEO 内容结构、2–3 个带取舍候选由 owner 拍板）→ Step 2 落盘 DESIGN.md + tokens → Step 2.5 工程接线（`contrast-guard setup`）→ Step 3 只用 tokens 实现 → Step 4 按项目 DESIGN.md + 质量底线验收；存量项目走补齐缺口模式。附 `templates/DESIGN.md`、`templates/tokens.css` 与 `references/`（differentiation / geo / engineering / observability / maintainability）。其余 skills 的入口链接改为相对路径 `../ui-design/SKILL.md`。
 - 新增 `contrast-guard setup [--dry-run]`：把前端工程体系引导装进 Vite 项目——安装本体（GitHub git 源，体系惯例不依赖 npm registry）与 vite-plugin-agent-eyes、vite-plugin-refresh-guard，备份后幂等改写 vite.config 注册插件，注入 `contrast:check` script，生成 `contrast.config.json` 模板，并把技能库落入项目 `.zcode/skills/`（随包 `skills/` 复制 + logo-brand-designer 克隆，已存在跳过不覆盖）。`--skip-install/config/scripts/skill/self` 分步执行；安装失败即中止，不改写 vite 配置。
-- 新增 [前端研发 Flow](docs/frontend-flow.md)：本仓为通用前端方法唯一真源——Flow 组织阶段、skills 提供按需方法、CLI 提供测量与证据检查；含六阶段路由原则与项目资产归属。
+- 新增前端研发 Flow（现为 [docs/ui-design.md](docs/ui-design.md)）：本仓为通用前端方法唯一真源——Flow 组织阶段、skills 提供按需方法、CLI 提供测量与证据检查；含六阶段路由原则与项目资产归属。
 - 新增 `contrast-guard review --init ui-review.json` 与 `contrast-guard review ui-review.json --json`：以显式产品契约、七个评估维度、声明范围内的截图证据、具体改动和可比 before/after 复测记录形成评审门禁。
 - 评估退出码：`0` 为记录满足门禁的 PASS，`1` 为 HOLD，`2` 为输入错误。初始化成功返回 `0`，空模板评估仍为 HOLD；初始化不覆盖已有文件。
 - [规则演进](docs/rule-evolution.md)：规则身份与版本、正例与反例、`proposed / trial / stable / deprecated` 生命周期、试验预算、停止与回滚；配合更新后的 [前端 UI 评审标准](docs/frontend-review-standard.md)。

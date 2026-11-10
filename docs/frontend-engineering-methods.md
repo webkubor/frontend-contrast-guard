@@ -1,6 +1,6 @@
 # 前端工程通用方法
 
-生效入口：[Flow](frontend-flow.md)；判定真源：[评审标准](frontend-review-standard.md)。本页从旧 CS 前端约定提取通用方法，去掉固定风格、品牌、域名、供应商命令与无法跨项目成立的硬阈值。
+生效入口：[ui-design 阶段总纲](ui-design.md)；判定真源：[评审标准](frontend-review-standard.md)。本页从旧 CS 前端约定提取通用方法，去掉固定风格、品牌、域名、供应商命令与无法跨项目成立的硬阈值。
 
 ## 组件与主题
 

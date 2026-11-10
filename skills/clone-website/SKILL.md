@@ -10,7 +10,7 @@ platform: shared
 origin: managed:webkubor/frontend-contrast-guard
 ---
 
-通用前端研发唯一入口：[Frontend Flow](https://github.com/webkubor/frontend-contrast-guard/blob/main/docs/frontend-flow.md)。项目品牌、组件库、域名和发布规则从项目读取。
+通用前端研发唯一入口：[ui-design](../ui-design/SKILL.md)。项目品牌、组件库、域名和发布规则从项目读取。
 
 # ── 质量追踪 ──
 {
