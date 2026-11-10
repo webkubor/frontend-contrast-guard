@@ -22,6 +22,7 @@
 - 设计稿/Figma/PRD 原图/截图还原及样式缺陷 → `ui-restore`；参考是可交互整站 → `clone-website`。两者不额外创建设计风格。
 - 从零构思或明确重设计 → `ui-design` Step 1（竞品扫描、差异化、GEO、2–3 个候选由 owner 拍板），`landing-page-design` 等作为素材库；其风格菜单不是各项目强制皮肤。
 - 判断视觉是否服务产品 → `ui-review`；判字段/路由/交互是否符合契约 → `frontend-e2e`。两者按任务组合，无须强制加载所有 skills。
+- `ui-design` 可按需调度外部执行器 **impeccable**（访谈、反模式扫描、专项改造），命令对照与纪律见 [skills/ui-design/references/impeccable.md](../skills/ui-design/references/impeccable.md)；它不作为并行入口，DESIGN.md 真源与方向拍板仍在 ui-design 一侧。
 - `apple-design` 提供手势、连续性和可中断交互的方法，不意味着所有项目采用 Apple 外观。`award-creative-ui` 不作为普通业务系统的风格要求。
 - 测量分布是观察，不是跨产品审美及格线。阈值、矩阵、复测与结论遵循[评审标准](frontend-review-standard.md)。
 - 已授权的修复持续到交付终态。仅遇到真实缺失信息、权限或不可替代的产品决策时说明具体阻塞；状态询问不取消正在执行的任务。

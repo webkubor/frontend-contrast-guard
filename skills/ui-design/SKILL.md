@@ -15,6 +15,8 @@ license: MIT
 - **项目内风格一致**：风格真源是**项目自己的 DESIGN.md + tokens**，不是 Agent 当下的审美。改 UI 前先找它，没有就先定方向，不准自己编风格。
 - **质量底线统一**：层级、间距、对比度、交互状态、响应式、GEO、工程接线，所有项目同一条线。
 
+**触发优先级**：做 UI 时**先加载本 skill**（`ui-design` 是唯一入口）。`impeccable` 是本 skill 按需调度的**执行器**（访谈、反模式扫描、专项改造），不作为并行入口——两个 skill 不各自抢入口。impeccable 的命令对照、4 种 mode、调用纪律见 [references/impeccable.md](references/impeccable.md)。
+
 阶段总纲见 [docs/ui-design.md](../../docs/ui-design.md)，判定真源见 [评审标准](../../docs/frontend-review-standard.md)，工程方法见 [通用方法](../../docs/frontend-engineering-methods.md)。加载其它 skill 一律 `cs skill show <name>`（计入 `cs skill stats`）。
 
 ## 交付定义（DoD）
@@ -39,9 +41,22 @@ rg -l -g '!node_modules' 'design-tokens|--color-|@theme' . | head
 
 **存量项目补齐缺口**：先体检缺哪些（DESIGN.md / tokens / contrast 门禁 / agent-eyes / refresh-guard / agentGuard / GEO），按 [engineering.md](references/engineering.md#存量项目补齐缺口) 清单只补缺失项，**不推翻已有风格与工具链**。
 
+## Step 0b · 存量反推（已有代码、缺 DESIGN.md）
+
+项目**已有可运行的 UI 代码**但没有 DESIGN.md 时，方向不是从零拍脑袋，而是从代码反推：
+
+1. **抽** → 调 impeccable `extract`：从现有代码抽 tokens（颜色、字阶、间距、圆角、阴影）与重复组件模式。命令、产出与调用方式见 [references/impeccable.md](references/impeccable.md)。
+2. **成稿** → 用抽出的结果拼出 DESIGN.md 初稿：定位/语气/DESIGN.md 模板的各小节能填的先填，**风格判断类的（语气、差异化、可记忆点）留空并标注待定**。
+3. **确认** → **初稿必须经 owner 确认**（确认的是「代码现状即风格」，不是新拍方向）；未确认前不改任何视觉。
+4. **落盘** → 按 [templates/DESIGN.md](templates/DESIGN.md) 的结构落盘 `DESIGN.md` + tokens，决策记录写清「反推自存量代码，owner 于 YYYY-MM-DD 确认」。**impeccable `document` 生成的 DESIGN.md 只是草稿**，不能直接覆盖项目文件。
+
+只有 tokens 没有 DESIGN.md 时同样走这条路（`extract` 的输入可以是 tokens + 页面）。
+
+**新项目不适用本步**：没有代码可反推，直接 Step 1 定方向（差异化 + GEO）。
+
 ## Step 1 · 定方向（新项目 / 无 DESIGN.md / 明确改版）
 
-1. **受众、目的、语气**：问清或推导；以及设备与主题要求。
+1. **受众、目的、语气**：问清或推导；以及设备与主题要求。可以用 impeccable `shape` / `init` 做访谈（它们只产出 brief 与 `PRODUCT.md`，方向仍由 owner 拍板）。
 2. **竞品扫描**：3–5 个同类产品，写「它们长什么样 → 我们刻意不同在哪」。见 [differentiation.md](references/differentiation.md)。
 3. **GEO 与内容结构**：此时就定信息架构、一句话定位、标题层级、FAQ、渲染方式、结构化数据。见 [geo.md](references/geo.md)。后台/内部工具可声明不适用，须写理由。
 4. **2–3 个差异明显的候选方向**，每个含：立意 + 参考；色板 / 字体字阶 / 密度 / 圆角阴影 / 动效草图；**取舍（放弃了什么）**；一个**可记忆点**；通过**换名测试**与 **AI 模板味检查**。
@@ -54,6 +69,7 @@ rg -l -g '!node_modules' 'design-tokens|--color-|@theme' . | head
 - 项目根写 `DESIGN.md`，用 [templates/DESIGN.md](templates/DESIGN.md)：定位、语气、定位与差异化、视觉系统、Do/Don't、参考、GEO/内容结构、决策记录（日期 + 拍板人 + 放弃项）。
 - 写 tokens：颜色（light/dark 语义层）、字阶、间距、圆角、阴影、动效。示例 [templates/tokens.css](templates/tokens.css)；已有 Tailwind/主题包就落进它的配置，不另起一套。
 - 项目 `AGENTS.md` 加入 UI 改动片段（见 [maintainability.md](references/maintainability.md#agentsmd-片段)）。
+- **impeccable `document` 生成的 DESIGN.md 只是草稿**：落盘前必须 owner 确认，且按本模板结构改写后写入，不得直接覆盖。
 
 ## Step 2.5 · 工程接线
 
@@ -74,6 +90,7 @@ Vite 项目：`npx contrast-guard setup --dry-run` 看改动 → `npx contrast-g
 |---|---|
 | 层级 / 间距 | 一屏一个主焦点；间距全来自 scale |
 | 对比度 | `contrast-guard check` 通过；渲染后 `contrast-guard measure` 抽查 |
+| 反模式 | `impeccable detect` 扫改动过的 HTML/CSS，无结构反模式命中（渐变文字、emoji 图标、堆叠大圆角卡片等）。**与 contrast-guard 互补不重复**：detect 查结构与 AI 味，contrast-guard 查色彩配对与计量；两者都跑 |
 | 交互状态 | 键盘可达、focus 可见、状态齐全 |
 | 响应式 / 暗色 | 声明的临界宽度无溢出遮挡；声明暗色则双主题截图 |
 | GEO | [geo.md](references/geo.md) 验收清单；基线/复测 `cs skill show project-maturity-audit` |
