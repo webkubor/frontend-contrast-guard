@@ -2,6 +2,7 @@ node_modules/
 *.tgz
 .DS_Store
 .ui-craft/
+.contrast-guard/
 .use_count
 .last_used
 .claude/
