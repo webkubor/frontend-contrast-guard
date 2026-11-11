@@ -15,9 +15,12 @@ export const SETUP_PLUGINS = [
 ]
 
 /** 自我安装走 GitHub git 源：本 CLI 按体系惯例经 git 分发，不依赖 npm registry。 */
-export const SELF_DEP = 'github:webkubor/frontend-contrast-guard'
+export const SELF_DEP = 'github:webkubor/ui-craft'
 
-export const SETUP_SCRIPTS = { 'contrast:check': 'contrast-guard check' }
+export const SETUP_SCRIPTS = {
+  'ui-craft:check': 'ui-craft check',
+  'contrast:check': 'contrast-guard check',
+}
 
 export const CONFIG_TEMPLATE = {
   files: ['src/**/*.css'],

@@ -1,26 +1,26 @@
 # ui-design
 
-UI 设计与前端页面开发的唯一入口。交付物是工程化、可观测、可维护的网站，不只是一张好看的页面。
+`ui-design` 是 ui-craft 的唯一入口 skill，指导 AI coding agent 读取项目设计规范、设计或还原页面、实现真实组件，并在浏览器截图中发现和修复视觉问题。
 
-- **不统一风格**：每个项目有自己的 `DESIGN.md` + tokens；有就照做，没有就先定方向再动手。已有 logo / brand-mark 时整站色彩必须从 logo 推导，不得另起色系。
-- **方向阶段就定差异化与 GEO**：竞品扫描、两轴以上差异的严格换名测试（一轴即未通过，禁止假断言）、AI 搜索可引用的内容结构，2–3 个带取舍的候选由 owner 拍板。
-- **决策可视化**：需要 owner 拍板的 UI 变更，先在 owner Mac 用 ego-lite（`ego-browser` `taskSpace` + `handOff()`）打开真实预览，同时在 `cs-ui-web` 创建带图决策卡（`decisions.images` 可用前用 `--detail` 图片 URL 链接降级）。
-- **质量底线统一**：对比度、键盘与焦点、响应式、遥测接线、提交期 token 守卫。
-- **执行层**：方向定好后可调用 [Impeccable](references/impeccable.md) 做 polish / audit / detect，它不是入口。
+- **尊重项目风格**：先读 `DESIGN.md`、tokens、现有页面与产品要求；没有设计契约时，从任务和证据推导，不套通用皮肤。
+- **自主推进**：用户授权实现时，记录合理假设后选择方向并继续；只有关键品牌或产品选择无法推断时才请求决策。
+- **先规划再实现**：明确页面任务、信息层级、差异化与适用时的 GEO 内容结构；组件的状态和响应式也是设计的一部分。
+- **真实页面复查**：固定页面状态与视口，查看截图，按具体元素和根因修复后复查。CLI 色彩检查和样式采样是辅助项，不是审美评分。
+- **执行器可选**：方向明确后可调用 [Impeccable](references/impeccable.md) 做 polish / audit / detect；它不是入口。
 
 ## 目录
 
 | 路径 | 用途 |
 |---|---|
-| [SKILL.md](SKILL.md) | 流程：找契约 → 存量反推 → 定方向 → 落盘 → 接线 → 验收 |
+| [SKILL.md](SKILL.md) | 完整主流程 |
 | [templates/DESIGN.md](templates/DESIGN.md) | 项目设计契约模板 |
-| [templates/tokens.css](templates/tokens.css) | tokens 模板 |
-| [references/decision-visualization.md](references/decision-visualization.md) | 决策可视化（ego-lite 预览 + 带图决策卡与降级） |
-| [references/differentiation.md](references/differentiation.md) | 差异化、logo 导色与严格换名测试 |
-| [references/geo.md](references/geo.md) | GEO 内容结构 |
-| [references/engineering.md](references/engineering.md) | 工程化接线 |
-| [references/observability.md](references/observability.md) | 可观测（agent-eyes 遥测） |
-| [references/maintainability.md](references/maintainability.md) | 可维护（tokens 守卫、版本同步） |
+| [templates/tokens.css](templates/tokens.css) | CSS tokens 模板 |
+| [references/differentiation.md](references/differentiation.md) | 差异化与品牌色参考 |
+| [references/geo.md](references/geo.md) | GEO 与页面内容结构 |
+| [references/engineering.md](references/engineering.md) | 项目无关的工程接线原则 |
+| [references/observability.md](references/observability.md) | 可观测能力的发现与选择 |
+| [references/maintainability.md](references/maintainability.md) | DESIGN.md 与 tokens 的维护 |
 | [references/impeccable.md](references/impeccable.md) | Impeccable 执行器接入细则 |
+| [references/decision-visualization.md](references/decision-visualization.md) | 需要用户决策时的预览与交接参考 |
 
-更完整的说明见 [docs/ui-design.md](../../docs/ui-design.md)。
+六阶段总纲见 [docs/ui-design.md](../../docs/ui-design.md)。

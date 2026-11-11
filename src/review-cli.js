@@ -11,7 +11,7 @@ export function runReview(args) {
       return 0
     }
     const file = args.find(value => !value.startsWith('--'))
-    if (!file) throw new Error('Usage: contrast-guard review <ui-review.json> [--json] | review --init [file]')
+    if (!file) throw new Error('Usage: ui-craft review <ui-review.json> [--json] | ui-craft review --init [file]')
     const report = evaluateReview(JSON.parse(readFileSync(file, 'utf8')))
     if (args.includes('--json')) console.log(JSON.stringify(report, null, 2))
     else {

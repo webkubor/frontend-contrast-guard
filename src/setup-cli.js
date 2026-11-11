@@ -1,4 +1,4 @@
-/** setup CLI：把 contrast-guard 本体、体系技能库、配套 vite 插件与 logo skill 引导装进当前 Vite 项目。 */
+/** ui-craft CLI setup：引导 UI skills、配套 Vite 插件与 logo skill 接入当前项目。 */
 import { readFileSync, writeFileSync, copyFileSync, existsSync, readdirSync, mkdirSync, cpSync } from 'node:fs'
 import { resolve, basename, join } from 'node:path'
 import { fileURLToPath } from 'node:url'

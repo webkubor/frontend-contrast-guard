@@ -1,23 +1,23 @@
 #!/usr/bin/env node
 /**
- * contrast-guard CLI
+ * ui-craft CLI
  *
  * 静态检查（零依赖，CI 里裸跑）：
- *   contrast-guard                      读 contrast.config.json / .js
- *   contrast-guard --json               机器可读输出
- *   contrast-guard --init               生成一份配置模板
+ *   ui-craft                      读 contrast.config.json / .js
+ *   ui-craft --json               机器可读输出
+ *   ui-craft --init               生成一份配置模板
  *
  * 渲染后计量（需要浏览器，运行时探测，不写进 dependencies）：
- *   contrast-guard measure <url>              判据 + 参考量
- *   contrast-guard measure <url> --save <名>   存为基线
- *   contrast-guard measure <url> --vs <名>     与基线逐项对比
- *   contrast-guard measure --baselines        列出已存基线
+ *   ui-craft measure <url>              判据 + 参考量
+ *   ui-craft measure <url> --save <名>   存为基线
+ *   ui-craft measure <url> --vs <名>     与基线逐项对比
+ *   ui-craft measure --baselines        列出已存基线
  *
  * 两者分工：check 查「对不对」（色值达不达标），measure 查「多少」
  * （几种字号、几层灰阶、多少元素有动效）。丑的每一处单看往往都"对"。
  *
  * 体系引导：
- *   contrast-guard setup            把本体 + vite 插件 + logo skill 装进当前 Vite 项目
+ *   ui-craft setup            把本体 + vite 插件 + logo skill 装进当前 Vite 项目
  *                                    --dry-run 预览；--skip-install/config/scripts/skill/self 分步执行
  */
 import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from 'node:fs'
@@ -101,14 +101,14 @@ if (args.includes('--init')) {
   const p = resolve(cwd, 'contrast.config.json')
   if (existsSync(p)) { console.error(`${C.y}已存在 ${basename(p)}${C.x}`); process.exit(1) }
   writeFileSync(p, JSON.stringify(TEMPLATE, null, 2) + '\n')
-  console.log(`${C.g}已生成 contrast.config.json${C.x}，改成你的变量名后运行 contrast-guard`)
+  console.log(`${C.g}已生成 contrast.config.json${C.x}，改成你的变量名后运行 ui-craft`)
   process.exit(0)
 }
 
 const config = await loadConfig(cwd)
 if (!config) {
   console.error(`${C.r}未找到 contrast.config.{js,mjs,json}${C.x}`)
-  console.error(`运行 ${C.b}contrast-guard --init${C.x} 生成模板`)
+  console.error(`运行 ${C.b}ui-craft --init${C.x} 生成模板`)
   process.exit(2)
 }
 
@@ -181,7 +181,7 @@ async function runMeasure(argv, cwd) {
   if (argv.includes('--baselines')) {
     const list = V.listBaselines(dir)
     if (!list.length) {
-      console.log(`暂无基线。先量个参照站存起来：${C.b}contrast-guard measure https://linear.app --save linear${C.x}`)
+      console.log(`暂无基线。先量个参照站存起来：${C.b}ui-craft measure https://linear.app --save linear${C.x}`)
       return
     }
     console.log(`${C.b}视觉基线${C.x}（${list.length}）  ${C.d}${dir}${C.x}`)
@@ -205,7 +205,7 @@ async function runMeasure(argv, cwd) {
   }
   const url = positional[0]
   if (!url) {
-    console.error(`${C.r}用法：contrast-guard measure <url> [--save 名] [--vs 名] [--json]${C.x}`)
+    console.error(`${C.r}用法：ui-craft measure <url> [--save 名] [--vs 名] [--json]${C.x}`)
     process.exit(2)
   }
 

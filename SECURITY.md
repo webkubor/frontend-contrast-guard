@@ -4,15 +4,16 @@
 
 | 版本 | 是否支持安全更新 |
 |---|:---:|
-| 0.4.x | ✅ 支持 |
+| 1.0.x | ✅ 支持 |
+| 0.4.x | ❌ 仅历史版本 |
 | < 0.4.0 | ❌ 不支持，建议升级 |
 
 ## 报告安全漏洞
 
-若在 `frontend-contrast-guard` 中发现任何安全漏洞（包括正则拒绝服务 ReDoS、注入风险或敏感路径遍历），请**不要**直接提交公开 Issue。
+若在 `ui-craft` 中发现任何安全漏洞（包括正则拒绝服务 ReDoS、注入风险或敏感路径遍历），请**不要**直接提交公开 Issue。
 
 请通过 GitHub 的官方私有漏洞报告通道提交：
-👉 **[Report a vulnerability](https://github.com/webkubor/frontend-contrast-guard/security/advisories/new)**
+👉 **[Report a vulnerability](https://github.com/webkubor/ui-craft/security/advisories/new)**
 
 ### 报告应包含的内容
 1. 受影响的版本；

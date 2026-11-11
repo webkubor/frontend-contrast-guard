@@ -23,8 +23,8 @@ import { fileURLToPath } from 'node:url'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const OFFLINE = process.argv.includes('--offline')
-const OWN_PREFIX = 'https://github.com/webkubor/frontend-contrast-guard/blob/main/'
-const OWN_DOC = /^https:\/\/github\.com\/webkubor\/frontend-contrast-guard\/blob\/main\/[A-Za-z0-9._/-]+\.md$/
+const OWN_PREFIX = 'https://github.com/webkubor/ui-craft/blob/main/'
+const OWN_DOC = /^https:\/\/github\.com\/webkubor\/ui-craft\/blob\/main\/[A-Za-z0-9._/-]+\.md$/
 
 function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {
@@ -46,7 +46,7 @@ for (const file of files) {
     const raw = m[1]
     const target = raw.split('#')[0]
     if (!target || target.includes('<') || target.startsWith('mailto:')) continue
-    if (target.includes('github.com/webkubor/frontend-contrast-guard')) {
+    if (target.includes('github.com/webkubor/ui-craft')) {
       if (!OWN_DOC.test(target)) {
         errors.push(`${relative(ROOT, file)}: 本仓链接形态非法 → ${target}`)
       } else {

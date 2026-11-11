@@ -1,0 +1,47 @@
+{
+  "skill_name": "ui-design",
+  "cases": [
+    {
+      "id": "ugly-generated-dashboard",
+      "prompt": "Agent 给我生成的后台页面太丑了，帮我收拾一下",
+      "expected_output": "读取项目设计契约、现有页面和组件；检查真实浏览器截图，指出具体层级、密度、排版或状态问题，实施修改并在相同条件下复查",
+      "should_trigger": true
+    },
+    {
+      "id": "build-component-autonomously",
+      "prompt": "给这个项目做一个看起来专业的定价卡片组件，直接完成，不用每个细节都问我",
+      "expected_output": "遵循项目 DESIGN.md、tokens 和组件库；用户已授权自主实现时记录合理视觉假设并继续，完成真实渲染和响应式/交互状态复查",
+      "should_trigger": true
+    },
+    {
+      "id": "new-product-page-no-design-system",
+      "prompt": "给我的新产品做一个官网首页，目前没有设计系统，先做出来看看",
+      "expected_output": "从产品资料和用户目标建立一套适合项目的视觉方向与 tokens，记录取舍后继续实现；公开页面规划清晰且适用的搜索/GEO 内容结构；在真实页面截图复查，不因可逆偏好细节阻塞",
+      "should_trigger": true
+    },
+    {
+      "id": "reference-screenshot-restoration",
+      "prompt": "按这张 Figma 截图把页面 1:1 还原出来",
+      "expected_output": "ui-design 作为入口，并路由到 ui-restore；固定参考与渲染条件，用截图和 computed style 查偏差、追踪 token/选择器根因、做最小修复并复查",
+      "should_trigger": true
+    },
+    {
+      "id": "visual-review",
+      "prompt": "评审一下这个页面是不是太像 AI 模板了",
+      "expected_output": "使用 ui-review 将抽象审美反馈转换为具体元素、层级/留白/排版/动效问题与整改项；真实截图与设计 tokens 为依据",
+      "should_trigger": true
+    },
+    {
+      "id": "public-page-geo",
+      "prompt": "设计这个产品落地页时，考虑中文搜索和 GEO 方向",
+      "expected_output": "对外页面定好清楚的实体定位、用户问题、标题层级、可见 FAQ 和适用的结构化内容，确保正文能被搜索/AI 理解；不声称保证排名或 AI 收录",
+      "should_trigger": true
+    },
+    {
+      "id": "backend-only-task",
+      "prompt": "优化这个服务的 Redis 连接池配置，不涉及页面",
+      "expected_output": "不触发 UI 设计流程",
+      "should_trigger": false
+    }
+  ]
+}

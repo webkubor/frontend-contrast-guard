@@ -78,7 +78,7 @@ contrast-guard measure <url> --json               # 出 JSON，需要自己算�
 
 字号、字体族、灰阶与动效覆盖率都是定位线索，没有跨产品通用及格线。阈值须来自项目契约、适用标准或同条件参考，注明用途、样本和失败影响。静态界面不因动效少判失败，多字体也可能是明确角色分工。先打开截图并追踪 token 与组件，再判断是否需要改动。
 
-完整判定与覆盖矩阵以 [评审标准](https://github.com/webkubor/frontend-contrast-guard/blob/main/docs/frontend-review-standard.md) 为准。历史参照站的数据不作为新项目默认门禁。
+完整判定与覆盖矩阵以 [评审标准](https://github.com/webkubor/ui-craft/blob/main/docs/frontend-review-standard.md) 为准。历史参照站的数据不作为新项目默认门禁。
 
 ## 成因清单（对着截图逐条查）
 

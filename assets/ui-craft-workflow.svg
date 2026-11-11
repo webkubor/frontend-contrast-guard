@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" role="img" aria-labelledby="title desc">
+  <title id="title">ui-craft design workflow</title>
+  <desc id="desc">A five step UI design workflow: understand the project, set design direction, build components, inspect the real page, and refine.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7f5f0"/><stop offset="1" stop-color="#eeedf5"/>
+    </linearGradient>
+    <style>
+      text{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#24242b}
+      .muted{fill:#696975}.step{font-size:13px;font-weight:650;letter-spacing:.08em}.title{font-size:22px;font-weight:700}.body{font-size:14px}.num{font-size:12px;font-weight:700;fill:#fff}
+    </style>
+  </defs>
+  <rect width="960" height="320" rx="24" fill="url(#bg)"/>
+  <text x="48" y="55" class="step muted">A PRACTICAL WORKFLOW FOR AI BUILT UI</text>
+  <text x="48" y="92" class="title">Good interfaces come from decisions, implementation and review.</text>
+  <g transform="translate(48 143)">
+    <g><rect width="154" height="112" rx="14" fill="#fff"/><circle cx="25" cy="27" r="13" fill="#3f665d"/><text x="21" y="31" class="num">1</text><text x="18" y="62" class="step">UNDERSTAND</text><text x="18" y="86" class="body muted">Project + task</text></g>
+    <path d="M163 56h22" stroke="#a5a2af" stroke-width="2"/><path d="m180 51 6 5-6 5" fill="none" stroke="#a5a2af" stroke-width="2"/>
+    <g transform="translate(194)"><rect width="154" height="112" rx="14" fill="#fff"/><circle cx="25" cy="27" r="13" fill="#75629a"/><text x="21" y="31" class="num">2</text><text x="18" y="62" class="step">DESIGN</text><text x="18" y="86" class="body muted">Hierarchy + tokens</text></g>
+    <path d="M357 56h22" stroke="#a5a2af" stroke-width="2"/><path d="m374 51 6 5-6 5" fill="none" stroke="#a5a2af" stroke-width="2"/>
+    <g transform="translate(388)"><rect width="154" height="112" rx="14" fill="#fff"/><circle cx="25" cy="27" r="13" fill="#b36548"/><text x="21" y="31" class="num">3</text><text x="18" y="62" class="step">BUILD</text><text x="18" y="86" class="body muted">Components + states</text></g>
+    <path d="M551 56h22" stroke="#a5a2af" stroke-width="2"/><path d="m568 51 6 5-6 5" fill="none" stroke="#a5a2af" stroke-width="2"/>
+    <g transform="translate(582)"><rect width="154" height="112" rx="14" fill="#fff"/><circle cx="25" cy="27" r="13" fill="#3d7187"/><text x="21" y="31" class="num">4</text><text x="18" y="62" class="step">INSPECT</text><text x="18" y="86" class="body muted">Real page + screenshot</text></g>
+    <path d="M745 56h22" stroke="#a5a2af" stroke-width="2"/><path d="m762 51 6 5-6 5" fill="none" stroke="#a5a2af" stroke-width="2"/>
+    <g transform="translate(776)"><rect width="106" height="112" rx="14" fill="#fff"/><circle cx="25" cy="27" r="13" fill="#9b5e76"/><text x="21" y="31" class="num">5</text><text x="18" y="62" class="step">REFINE</text><text x="18" y="86" class="body muted">Fix + review</text></g>
+  </g>
+  <text x="48" y="288" class="body muted">The CLI helps verify selected checks; it does not judge whether a page looks good.</text>
+</svg>

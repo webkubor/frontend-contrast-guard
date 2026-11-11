@@ -7,7 +7,7 @@ user-invocable: true
 type: procedure
 category: coding
 platform: shared
-origin: managed:webkubor/frontend-contrast-guard
+origin: managed:webkubor/ui-craft
 ---
 
 通用前端研发唯一入口：[ui-design](../ui-design/SKILL.md)。项目品牌、组件库、域名和发布规则从项目读取。
