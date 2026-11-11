@@ -35,6 +35,7 @@ rg -l -g '!node_modules' 'design-tokens|--color-|@theme' . | head
 ```
 
 - 先读项目 `AGENTS.md` / `CLAUDE.md` 指定的设计文件、组件库或主题包（公司项目走 `company-frontend-flow` 与其 tokens/组件库）。
+- **先查 logo / brand-mark**：项目已有 logo / brand-mark（如 `brand-mark.svg`、`logo.svg`）时，**整站色彩系统必须从 logo 推导，不得另起色系**（例证与规则见 [differentiation.md](references/differentiation.md#0-颜色来源铁律先查-logo--brand-mark)）；没有 logo 才走 Step 1 推导。
 - **有 DESIGN.md / tokens** → 通读并服从，**不重选风格、不顺手改配色字体**；与需求冲突问 owner。进入「存量补齐」或直接 Step 3。
 - **只有 tokens** → 从 tokens + 现有页面反推 DESIGN.md，标注「反推，待 owner 确认」。
 - **都没有** → Step 1；**owner 选定方向前不写 UI 代码**。
@@ -47,7 +48,7 @@ rg -l -g '!node_modules' 'design-tokens|--color-|@theme' . | head
 
 1. **抽** → 调 impeccable `extract`：从现有代码抽 tokens（颜色、字阶、间距、圆角、阴影）与重复组件模式。命令、产出与调用方式见 [references/impeccable.md](references/impeccable.md)。
 2. **成稿** → 用抽出的结果拼出 DESIGN.md 初稿：定位/语气/DESIGN.md 模板的各小节能填的先填，**风格判断类的（语气、差异化、可记忆点）留空并标注待定**。
-3. **确认** → **初稿必须经 owner 确认**（确认的是「代码现状即风格」，不是新拍方向）；未确认前不改任何视觉。
+3. **确认** → **初稿必须经 owner 确认**（确认的是「代码现状即风格」，不是新拍方向）；需要预览对比/拍板时按 [decision-visualization.md](references/decision-visualization.md) 执行，未确认前不改任何视觉。
 4. **落盘** → 按 [templates/DESIGN.md](templates/DESIGN.md) 的结构落盘 `DESIGN.md` + tokens，决策记录写清「反推自存量代码，owner 于 YYYY-MM-DD 确认」。**impeccable `document` 生成的 DESIGN.md 只是草稿**，不能直接覆盖项目文件。
 
 只有 tokens 没有 DESIGN.md 时同样走这条路（`extract` 的输入可以是 tokens + 页面）。
@@ -57,10 +58,10 @@ rg -l -g '!node_modules' 'design-tokens|--color-|@theme' . | head
 ## Step 1 · 定方向（新项目 / 无 DESIGN.md / 明确改版）
 
 1. **受众、目的、语气**：问清或推导；以及设备与主题要求。可以用 impeccable `shape` / `init` 做访谈（它们只产出 brief 与 `PRODUCT.md`，方向仍由 owner 拍板）。
-2. **竞品扫描**：3–5 个同类产品，写「它们长什么样 → 我们刻意不同在哪」。见 [differentiation.md](references/differentiation.md)。
+2. **竞品扫描**：3–5 个同类产品，写「它们长什么样 → 我们刻意不同在哪」（已有 logo 时色彩从 logo 推导，无 logo 才从竞品/方向推导）。见 [differentiation.md](references/differentiation.md)。
 3. **GEO 与内容结构**：此时就定信息架构、一句话定位、标题层级、FAQ、渲染方式、结构化数据。见 [geo.md](references/geo.md)。后台/内部工具可声明不适用，须写理由。
-4. **2–3 个差异明显的候选方向**，每个含：立意 + 参考；色板 / 字体字阶 / 密度 / 圆角阴影 / 动效草图；**取舍（放弃了什么）**；一个**可记忆点**；通过**换名测试**与 **AI 模板味检查**。
-5. **owner 拍板**，Agent 不得自选；未回复前停在本步。
+4. **2–3 个差异明显的候选方向**，每个含：立意 + 参考；色板（有 logo 从 logo 推导）/ 字体字阶 / 密度 / 圆角阴影 / 动效草图；**取舍（放弃了什么）**；一个**可记忆点**；通过**换名测试**（配色结构 / 版式 / 密度与信息结构三轴中**至少两轴不同**才通过，一轴即未通过且须诚实写明并给代价，见 [differentiation.md](references/differentiation.md#3-换名测试)）与 **AI 模板味检查**。
+5. **owner 拍板（决策可视化）**：任何需要 owner 拍板的 UI 变更，必须先在 owner Mac 用 ego-lite（`ego-browser` `taskSpace` + `handOff()`）打开真实预览并截图，同时在 `cs-ui-web` 决策收件箱（`cs decision create`）建带图决策卡（`decisions.images` 可用前用 `--detail` 图片 URL 链接降级）。步骤与失败降级见 [decision-visualization.md](references/decision-visualization.md)；Agent 不得自选，未回复前停在本步。
 
 素材库（不是强制皮肤，按需 `cs skill show`）：[apple-design](../apple-design/SKILL.md)（交互与动效原理）、[award-creative-ui](../award-creative-ui/SKILL.md)（明确创意类）、[landing-page-design](../landing-page-design/SKILL.md)（营销页结构与风格菜单）、`logo-brand-designer`（标识与品牌色）、owner 的 Bloom OKLCH 色板（`dsh-bloom-theme` / `typora-Bloom-theme`）。
 
@@ -107,7 +108,7 @@ Vite 项目：`npx contrast-guard setup --dry-run` 看改动 → `npx contrast-g
 | 5 验收 | [frontend-e2e](../frontend-e2e/SKILL.md)、[browser-verify](../browser-verify/SKILL.md) | PASS/HOLD/未验证 + 截图 |
 | 6 交付 | 项目交付规则、`release-sync` | 测试、部署版本、复测、残余项 |
 
-工具不可用时如实标缺口，不用 HTTP 200 或本地通过冒充目标环境验收。
+工具不可用或换名测试未通过时如实标缺口并写清代价，不得用必然通过的假断言、HTTP 200 或本地通过冒充目标环境验收。
 
 ## 汇报（必填）
 

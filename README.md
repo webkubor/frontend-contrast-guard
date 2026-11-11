@@ -280,7 +280,7 @@ contrast-guard measure --baselines                        # 列出基线
 | `design-to-motion` | 静态设计稿（Figma/截图）转像素级动效 HTML 复刻 |
 | `frontend-e2e` | 页面完成度与对齐 PRD 的结构化浏览器验收，ego-browser + agent-eyes 取证 |
 | `landing-page-design` | 高转化落地页完整体系：结构、文案、转化链路 |
-| `ui-design` | **UI 设计唯一入口**：先找项目 DESIGN.md / tokens，没有就定方向（差异化 + GEO + owner 拍板）→ 落盘 → 工程接线 → 只用 tokens 实现 → 验收 |
+| `ui-design` | **UI 设计唯一入口**：先找项目 DESIGN.md / tokens（有 logo 从 logo 导色），没有就定方向（差异化 + 两轴换名测试 + GEO + ego-lite 预览与带图决策卡拍板）→ 落盘 → 工程接线 → 只用 tokens 实现 → 验收 |
 | `ui-review` | 把「丑」翻译成可执行整改条目：计量 + 截图对照成因清单 |
 | `ui-restore` | 从 Figma/PRD/截图还原 UI，双证据定位视觉缺陷根因 |
 
