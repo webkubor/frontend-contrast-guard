@@ -1,6 +1,6 @@
 # GEO 细则（生成式引擎 / AI 搜索可见性）
 
-[ui-design](../SKILL.md) Step 1 定方向时就要定内容结构；Step 4 按下方清单验收。基线与复测走 `cs skill show project-maturity-audit`（已有 GEO 基线与复测流程）。
+Step 1 定方向时就要定内容结构；Step 4 按下方清单验收。若需要量化基线，使用项目已有的 GEO 评估工具并记录结果。
 
 ## 适用范围
 

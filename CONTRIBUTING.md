@@ -1,6 +1,6 @@
 # 参与贡献 (Contributing)
 
-感谢你想参与改进 `frontend-contrast-guard`。
+感谢你想参与改进 `ui-craft`。
 
 为保证工具在极简 CI 与多 Agent 环境下的绝对可靠性，请在贡献前了解以下设计纪律：
 

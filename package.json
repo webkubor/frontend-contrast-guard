@@ -1,10 +1,11 @@
 {
-  "name": "frontend-contrast-guard",
-  "version": "0.4.0",
+  "name": "ui-craft",
+  "version": "1.0.0",
   "private": true,
-  "description": "前端工程、视觉与色彩全栈守卫：静态查色彩配对、渲染后查视觉程度、4阶多视口与盒模型规范，串联前端插件、工具与开发库。",
+  "description": "UI design skills for AI agents: create better components and pages with a project-aware design workflow and real screenshot review.",
   "type": "module",
   "bin": {
+    "ui-craft": "./src/cli.js",
     "frontend-contrast-guard": "./src/cli.js",
     "contrast-guard": "./src/cli.js"
   },
@@ -15,6 +16,7 @@
     "src",
     "skills",
     "docs",
+    "assets",
     "README.md",
     "LICENSE"
   ],
@@ -23,30 +25,25 @@
     "check": "node src/cli.js"
   },
   "keywords": [
-    "wcag",
-    "contrast",
-    "accessibility",
-    "a11y",
-    "oklch",
-    "color",
-    "design-tokens",
-    "ci",
-    "theme",
+    "ui-design",
+    "ai-agent-skills",
     "design-system",
-    "visual-regression",
-    "computed-style",
-    "design-review",
-    "ui-audit"
+    "design-tokens",
+    "visual-review",
+    "accessibility",
+    "contrast",
+    "oklch",
+    "wcag"
   ],
   "license": "MIT",
   "author": "webkubor",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/webkubor/frontend-contrast-guard.git"
+    "url": "git+https://github.com/webkubor/ui-craft.git"
   },
-  "homepage": "https://github.com/webkubor/frontend-contrast-guard",
+  "homepage": "https://github.com/webkubor/ui-craft",
   "bugs": {
-    "url": "https://github.com/webkubor/frontend-contrast-guard/issues"
+    "url": "https://github.com/webkubor/ui-craft/issues"
   },
   "engines": {
     "node": ">=18"

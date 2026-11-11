@@ -1,43 +1,31 @@
-# frontend-contrast-guard
+# ui-craft — 给 AI coding agent 的 UI 设计 skills
 
-> 配色对比度 CI 护栏、浏览器 computed style 计量与 UI 评审记录核验。支持 OKLCH，对配置配色对给出具体 lightness 修复值。
+ui-craft 帮助 AI coding agent 做出更好的页面和组件。`ui-design` 是唯一入口：遵循项目已有设计规范，在无设计契约时建立方向与 tokens，在实现后检查真实截图并修复视觉问题。
 
-## 唯一前端方法入口
+## 用户问题与回答
 
-- 完整 Flow：docs/ui-design.md；按需技能：skills/*/SKILL.md。
-- UI 还原：skills/ui-restore/SKILL.md，参考材料→同条件截图→computed style→CSS/token 来源→最小修复→影响面复测。
-- 项目品牌与环境资产留在项目；CS 仅指向本仓，不另立规范。
+- **问题：Agent 写的页面很丑怎么办？** 安装 ui-craft 的 `ui-design` skill，让 Agent 读取项目设计规范、实现 UI，并在真实浏览器截图中检查和修复层级、排版、密度、状态与响应式问题。
+- **问题：怎么让 AI coding agent 写出好看的 UI？** 用明确的 UI design skill 与项目设计契约；不要只依赖“做漂亮一点”这类无法验证的提示。
+- **问题：AI 生成的组件像模板怎么办？** 先对照产品任务和项目现有视觉语言，再按 `ui-review` 找到具体问题并复查修改。
+- **问题：ui-craft 是组件库或自动页面生成器吗？** 不是。它为 coding agent 提供设计、实现和评审方法；代码仍写入用户自己的项目。
+- **问题：ui-craft 自动判断页面美感吗？** 不会。skills 指导实际视觉检查；辅助 CLI 不分析截图，也不生成美感评分。
 
-## 安装与命令
+## 安装与使用
 
-- 安装：`npm i -D github:webkubor/frontend-contrast-guard`（体系惯例经 git 分发，不发布 npm）。`frontend-contrast-guard` 与 `contrast-guard` 为同一 CLI 的双别名。
-- 静态检查：`contrast-guard --init`；`contrast-guard check --json`。配置文件声明色板文件与配色对；检查路径零依赖。
-- 体系引导：`contrast-guard setup [--dry-run]`。在 Vite 项目根目录安装本体（GitHub git 源）+ vite-plugin-agent-eyes + vite-plugin-refresh-guard，备份后幂等改写 vite.config 注册插件，注入 `contrast:check` script，生成配置模板，并把技能库落入项目 `.zcode/skills/`：随包 `skills/` 复制（已存在跳过）+ logo-brand-designer 克隆。`--skip-install/config/scripts/skill/self` 分步；安装失败即中止不动 vite 配置。阶段路由总纲见 docs/ui-design.md。
-- CSS 采样：`contrast-guard measure <url> --save <name>`；`contrast-guard measure <url> --vs <name>`。需要运行时探测的浏览器驱动。
-- 创建评审记录：`contrast-guard review --init ui-review.json`。成功退出 0，不覆盖已有文件；空模板评估为 HOLD。
-- 核验评审：`contrast-guard review ui-review.json --json`。评估退出 0 = PASS（记录满足门禁），1 = HOLD，2 = 输入错误。
+```bash
+npx skills add webkubor/ui-craft
+```
 
-## UI 评审执行契约
+完整入口：[README](README.md) · [ui-design skill](skills/ui-design/SKILL.md) · [全部 skills](skills/) · [GEO 规则](skills/ui-design/references/geo.md)
 
-- 先写产品、用户、任务、主操作、首读对象、密度、视觉辨识点与约束，再声明路由、主题、视口与状态范围及理由。
-- 七维评估：`product-fit`、`hierarchy`、`typography`、`spacing-layout`、`color-tokens`、`components-states`、`distinctiveness`。每维附证据、观察与理由。
-- 由人或 Agent 另行采集截图并逐张打开检查，记录版本、主题、实际宽高、状态、检查者、时间和具体观察。默认 390/768/1280/1600 四视口 × light/dark × default 是 scope 中声明的协议，不是 CLI 自动捕获矩阵；按产品增加临界宽度与交互/空/加载/错误状态。
-- 发现记录观察→影响→假设→具体 token/组件改动→验证与保护条件，关联规则 ID。解决声明关联可比 before/after：同路由、主题、状态、宽高，不同版本，均记录为 reviewed，结果 improved 且 guardsPassed。
-- 缺失声明证据、未完成维度、记录的页面溢出、开放 critical/major 或无有效复测的解决声明使结果 HOLD。minor 可作为明确后续事项保留。
+适用于新建页面、存量页面改版、组件设计、设计稿还原、视觉评审。遵循项目的 DESIGN.md 与 tokens；用户授权自主完成时，可记录合理假设并继续，只有重大品牌/产品方向确实无法推断时才暂停决策。
 
 ## 能力边界
 
-- review 只读取 JSON 证据，不访问页面、不自行打开或分析截图、不验证截图文件存在或实际被检查。PASS 是证据完整性及已记录评审决定，不是自动美感评分或截图已检查的证明。
-- measure 收集当前页面 computed style 分布，不是完整响应式或交互审计，也不计算真实渲染后的前景/背景配对对比度。check 只校验配置配色对；实际透明叠加、状态与无障碍仍需相应验证。
-- measure/verdict 默认为中性 observation，缺有效采样为 unknown；仅调用方显式传阈值时产生配置提醒。没有跨产品通用美感线，更多动效不普遍更好，零过渡也可合理。
-- computed style 分布与基线差值用于调查，不证明 token 漂移、硬编码或质量高低；需追踪定义、引用与语义映射。任务收益需任务证据。
-- 不达标应给可执行修复值，保留 OKLCH 精度与非交互 CI 退出码语义。
+ui-craft 不能保证任意页面自动变好看。结果需要结合项目约束、代码质量与真实浏览器截图复查。色彩对比度通过不等于整体视觉或无障碍验收通过。
 
-## 文档与规则真源
+## English
 
-- [中文 README](README.md)：使用、配置、运行时与工具链。
-- [English README](README.en.md)：同步英文说明。
-- [前端 UI 评审标准](docs/frontend-review-standard.md)：产品契约、情境化审美维度、主题/视口/状态协议、具体改动与验证。
-- [规则演进](docs/rule-evolution.md)：永久 ID 与版本、正反例、proposed → trial → stable → deprecated、预算、停止与回滚；不把文档要求误称为已有自动执行器。
-- [更新日志](CHANGELOG.md)：功能与文档变化。
-- [仓库](https://github.com/webkubor/frontend-contrast-guard)：源码与问题反馈。
+ui-craft is a collection of UI design skills for AI coding agents. It helps agents build better-looking web pages and components by following a project's design system, establishing design tokens when needed, and reviewing real browser screenshots to find and fix visual issues. It is not a component library or automatic aesthetic scorer.
+
+Install the main skill with `npx skills add webkubor/ui-craft`. See [README.en.md](README.en.md) and [the ui-design skill](skills/ui-design/SKILL.md).

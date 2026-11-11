@@ -1,24 +1,25 @@
-# AGENTS.md — AI 助手工作守则
+# AGENTS.md — ui-craft project guide
 
-## 这是什么
+## What this repository is
 
-contrast-guard —— 把配色对比度做成 CI 护栏的 CLI：支持 OKLCH，不达标时**反推出该改成多少**
-（给出确切的 lightness），另有渲染后计量子命令。Bloom 主题家族的配色就靠它守门。
+`ui-craft` is a set of UI design skills for AI coding agents. Its main entry is `skills/ui-design/SKILL.md`, supported by focused design, implementation and review skills. A separate optional CLI provides color-pair checks, computed-style sampling, Vite setup and review-record validation.
 
-## 关键文件
+## Key files
 
-- `contrast.config.json`：护栏配置 —— 声明哪些变量组合必须达标（AA/AAA）。
-- `README.md` / `README.en.md`：双语 README，同步改。
+- `skills/`: skills distributed with the project; keep their links and frontmatter valid.
+- `README.md` / `README.en.md` / `llms.txt`: Chinese-first product definition and installation guidance; update both README languages and the machine-readable summary together.
+- `docs/frontend-review-standard.md`: source of truth for UI review criteria.
+- `src/`: optional CLI; retain its zero runtime dependency design and actionable color correction values.
 
-## 约定
+## Product principles
 
-- 「不达标要给解」是本工具的灵魂：只报错不给修复值的改动会被视为退化。
-- OKLCH 是一等公民；任何新增颜色空间支持不得降级 OKLCH 的精度。
-- 检查必须可进 CI（退出码语义：0 通过 / 非 0 失败），别引入需要交互的模式。
+- Lead with the problem the skills solve: help agents build better-looking components and pages.
+- Follow a project's design contract; do not impose one visual style on every project.
+- For authorized implementation work, make and document reasonable design choices instead of blocking on preference-only approvals.
+- Real screenshot review must be performed by an agent or person. The CLI does not assign aesthetic scores.
+- Keep `ui-craft`, `contrast-guard` and `frontend-contrast-guard` executable names working for compatibility.
+- GEO statements must be accurate, useful to people and answer engines, and explicit about the tool's limitations. Do not claim rankings or guaranteed visibility.
 
-## 前端方法唯一入口
+## Validation
 
-- 入口 skill 是 `skills/ui-design/SKILL.md`（阶段总纲 `docs/ui-design.md`），按需加载 `skills/`。判定真源为 `docs/frontend-review-standard.md`。
-- 全局方法仅描述工程过程；品牌风格、项目路径/域名、环境账号与发布纪律在所属项目维护。
-- 不向 CS 或安装目录复制规则正文；修改本仓真源，并检查 Flow/规范/skills 引用一致。
-- CLI、setup 与 skills 是不同层：本次方法迁移不改变 npm 包发布范围或自动安装副作用。
+Before delivery, run `npm test`, `npm run check`, and `node scripts/check-links.mjs --offline`. Release documentation and package metadata must agree on the version. The package is distributed from GitHub, not published to npm.

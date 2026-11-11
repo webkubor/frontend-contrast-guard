@@ -29,13 +29,14 @@ test('installArgs 覆盖三种包管理器，self 开关控制自我安装', () 
 
 test('injectScripts 只补缺失的键，不覆盖已有 scripts', () => {
   const first = injectScripts({ dev: 'vite' })
-  assert.deepEqual(first.added, ['contrast:check'])
+  assert.deepEqual(first.added, ['ui-craft:check', 'contrast:check'])
   assert.equal(first.scripts.dev, 'vite')
+  assert.equal(first.scripts['ui-craft:check'], 'ui-craft check')
   assert.equal(first.scripts['contrast:check'], 'contrast-guard check')
 
   const again = injectScripts(first.scripts)
   assert.deepEqual(again.added, [])
-  assert.equal(Object.keys(again.scripts).length, 2)
+  assert.equal(Object.keys(again.scripts).length, 3)
 })
 
 test('rewriteViteConfig 接线单行 plugins 数组并保持可解析', () => {

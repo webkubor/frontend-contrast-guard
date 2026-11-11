@@ -6,10 +6,10 @@
 没有未解决的 critical/major 问题。它不是“这个网站绝对漂亮”。
 
 ```bash
-contrast-guard review --init ui-review.json
+ui-craft review --init ui-review.json
 # 先开浏览器截图并实际检查，再填写报告
-contrast-guard review ui-review.json
-contrast-guard review ui-review.json --json
+ui-craft review ui-review.json
+ui-craft review ui-review.json --json
 ```
 
 初始化返回 0；评估返回 0=PASS、1=HOLD、2=输入错误。初始化不覆盖现有文件。

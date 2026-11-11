@@ -19,7 +19,7 @@ metadata:
 
 # 前端浏览器结构化验收（E2E）
 
-唯一入口：[ui-design](../ui-design/SKILL.md)；验收依据：[评审标准](https://github.com/webkubor/frontend-contrast-guard/blob/main/docs/frontend-review-standard.md)。本方法逐区、逐字段、逐交互对照项目契约，产出通过项、差异与未验证项。
+唯一入口：[ui-design](../ui-design/SKILL.md)；验收依据：[评审标准](https://github.com/webkubor/ui-craft/blob/main/docs/frontend-review-standard.md)。本方法逐区、逐字段、逐交互对照项目契约，产出通过项、差异与未验证项。
 
 ## 1. 定义环境与覆盖矩阵
 

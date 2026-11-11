@@ -2,6 +2,26 @@
 
 格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)。
 
+## [1.0.0] - 2026-11-11
+
+### Added
+
+- **以 UI 设计与实现 skills 为产品入口**：围绕 Agent 生成页面和组件的实际痛点重写中英文 README，说明设计契约、tokens、真实截图评审和修改流程，并列出适用 skills。
+- **中文优先的 GEO 内容**：README 回答“Agent 写的页面很丑怎么办”等常见问题，补充边界和可引用定义；`llms.txt` 提供中英机器可读摘要。
+- **跨环境可用的 `ui-design` 工作流**：去掉主流程对 CS 私有工具的依赖。用户授权自主完成时记录设计假设并继续；仅重大且无法推断的产品/品牌选择请求决策。主入口技能版本提升至 2.1.0，并增加 7 个触发/行为回归评测用例。
+- **ui-craft CLI 主命令**：新增 `ui-craft` executable，保留 `contrast-guard` 和 `frontend-contrast-guard` 命令兼容别名；setup 使用新 GitHub 地址并注入新命令脚本。
+- **可选 CLI 说明**：新增 [CLI 参考](docs/contrast-cli.md)，明确工具能检查什么、不能替代什么。
+
+### Changed
+
+- 项目名称、GitHub 文档链接与贡献/安全说明改为 `ui-craft`。
+- 当前仓库从色彩对比度检查工具的对外定位，调整为帮助 AI coding agent 做出更好页面和组件的 Skills 套件；CLI 保持辅助工具定位。
+
+### Migration
+
+- 使用新仓库地址：`github:webkubor/ui-craft`。GitHub 仓库重命名会将旧地址重定向。
+- 现有脚本可继续调用 `contrast-guard` 或 `frontend-contrast-guard`；新配置建议改用 `ui-craft` / `ui-craft:check`。
+
 ## [Unreleased]
 
 ### Added
