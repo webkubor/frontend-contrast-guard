@@ -5,9 +5,7 @@
   "description": "UI design skills for AI agents: create better components and pages with a project-aware design workflow and real screenshot review.",
   "type": "module",
   "bin": {
-    "ui-craft": "./src/cli.js",
-    "frontend-contrast-guard": "./src/cli.js",
-    "contrast-guard": "./src/cli.js"
+    "ui-craft": "./src/cli.js"
   },
   "exports": {
     ".": "./src/index.js"

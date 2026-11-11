@@ -106,7 +106,7 @@ test('topNames preserves ordering, defaults, and truncation', () => {
 test('baseline path, save, load, sorting and profile preservation remain intact', () => {
   const dir = mkdtempSync(join(tmpdir(), 'contrast-verdict-'))
   try {
-    assert.equal(baselineDir('/project'), resolve('/project', '.contrast-guard', 'baselines'))
+    assert.equal(baselineDir('/project'), resolve('/project', '.ui-craft', 'baselines'))
     assert.equal(baselineDir('/project', dir), dir)
     assert.deepEqual(listBaselines(join(dir, 'missing')), [])
     const profile = { focus: 'content' }

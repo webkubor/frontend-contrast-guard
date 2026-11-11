@@ -17,7 +17,7 @@
 - Follow a project's design contract; do not impose one visual style on every project.
 - For authorized implementation work, make and document reasonable design choices instead of blocking on preference-only approvals.
 - Real screenshot review must be performed by an agent or person. The CLI does not assign aesthetic scores.
-- Keep `ui-craft`, `contrast-guard` and `frontend-contrast-guard` executable names working for compatibility.
+- Keep `ui-craft` as the sole executable name.
 - GEO statements must be accurate, useful to people and answer engines, and explicit about the tool's limitations. Do not claim rankings or guaranteed visibility.
 
 ## Validation

@@ -65,7 +65,7 @@ npx ui-craft review --init ui-review.json
 npx ui-craft review ui-review.json --json
 ```
 
-Existing projects can keep using the `contrast-guard` and `frontend-contrast-guard` command aliases. See the [CLI guide](docs/contrast-cli.md) for configuration, CI, browser sampling and review evidence.
+The CLI uses the single `ui-craft` command. See the [CLI guide](docs/contrast-cli.md) for configuration, CI, browser sampling and review evidence.
 
 ## Scope and limits
 

@@ -5,7 +5,7 @@
  * **零依赖**——所以浏览器驱动一律做**运行时探测**，绝不写进 dependencies：
  * 装了什么就用什么，都没装就明确报错告诉用户装哪个。
  *
- * `contrast-guard check`（静态对比度）完全不碰这里，仍然零依赖、CI 里裸跑。
+ * `ui-craft check`（静态对比度）完全不碰这里，仍然零依赖、CI 里裸跑。
  */
 import { spawn } from 'node:child_process'
 import { METRIC_SCRIPT } from './metric.js'
@@ -65,7 +65,7 @@ async function measureWithEgo(url, { timeout = 25, settle = 2 } = {}) {
   // openOrReuseTab 的 wait:true 在有长连接/轮询的站点上可能永远等不到 idle，
   // 所以 try 住：超时也继续量，此时页面通常早就可用了。
   const script = `
-const t = await useOrCreateTaskSpace('contrast-guard-measure')
+const t = await useOrCreateTaskSpace('ui-craft-measure')
 try { await openOrReuseTab(${JSON.stringify(url)}, { wait: true, timeout: ${timeout} }) } catch (e) { }
 await wait(${settle})
 const d = await js(${'`'}${METRIC_SCRIPT}${'`'})
@@ -107,7 +107,7 @@ export async function measure(url, opts = {}) {
       '需要一个浏览器驱动才能做渲染后计量，两个都没检测到。\n' +
       '  · ego-browser（推荐，复用已登录状态，能量需要登录的页面）\n' +
       '  · playwright：npm i -D playwright && npx playwright install chromium\n' +
-      '静态对比度检查不需要浏览器，contrast-guard check 仍可直接用。'
+      '静态对比度检查不需要浏览器，ui-craft check 仍可直接用。'
     )
   }
   const data = driver === 'ego'

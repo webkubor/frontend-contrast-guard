@@ -32,7 +32,7 @@ test('injectScripts 只补缺失的键，不覆盖已有 scripts', () => {
   assert.deepEqual(first.added, ['ui-craft:check', 'contrast:check'])
   assert.equal(first.scripts.dev, 'vite')
   assert.equal(first.scripts['ui-craft:check'], 'ui-craft check')
-  assert.equal(first.scripts['contrast:check'], 'contrast-guard check')
+  assert.equal(first.scripts['contrast:check'], 'ui-craft check')
 
   const again = injectScripts(first.scripts)
   assert.deepEqual(again.added, [])

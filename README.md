@@ -94,7 +94,7 @@ npx ui-craft review --init ui-review.json
 npx ui-craft review ui-review.json --json
 ```
 
-既有项目可继续用 `contrast-guard` 或 `frontend-contrast-guard` 命令；三个命令名都保留。需要配置检查、CI、浏览器采样、评审证据格式和 Vite `setup` 的详细说明，见 [CLI 指南](docs/contrast-cli.md)。
+CLI 统一使用 `ui-craft` 命令。需要配置检查、CI、浏览器采样、评审证据格式和 Vite `setup` 的详细说明，见 [CLI 指南](docs/contrast-cli.md)。
 
 ## 交付边界
 

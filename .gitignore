@@ -1,7 +1,7 @@
 node_modules/
 *.tgz
 .DS_Store
-.contrast-guard/
+.ui-craft/
 .use_count
 .last_used
 .claude/

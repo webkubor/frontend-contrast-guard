@@ -96,7 +96,7 @@ export function topNames(d, n = 3, max = 28) {
 // 数字回答「差多少」，画像回答「差在哪种气质」。
 
 export function baselineDir(cwd = process.cwd(), override) {
-  return override || resolve(cwd, '.contrast-guard', 'baselines')
+  return override || resolve(cwd, '.ui-craft', 'baselines')
 }
 
 export function saveBaseline(name, data, dir) {

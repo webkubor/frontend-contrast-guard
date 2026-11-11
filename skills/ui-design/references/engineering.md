@@ -28,7 +28,7 @@ npx ui-craft --init
 npx ui-craft check
 ```
 
-完整能力边界见 [CLI 参考](../../../docs/contrast-cli.md)。旧项目可继续使用 `contrast-guard` 命令别名。
+完整能力边界见 [CLI 参考](../../../docs/contrast-cli.md)。旧项目可继续使用 `ui-craft` 命令别名。
 
 ## 非 Vite 项目
 

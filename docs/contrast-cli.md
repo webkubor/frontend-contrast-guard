@@ -10,7 +10,7 @@ ui-craft 的主价值是帮助 Agent 设计并改进 UI 的 skills。CLI 是可�
 npm install -D github:webkubor/ui-craft
 ```
 
-主要命令名为 `ui-craft`。已有项目中的 `contrast-guard` 与 `frontend-contrast-guard` 命令名仍作为兼容别名提供。
+CLI 统一使用 `ui-craft` 命令。
 
 ## 检查已声明的色彩配对
 

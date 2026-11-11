@@ -19,7 +19,7 @@ export const SELF_DEP = 'github:webkubor/ui-craft'
 
 export const SETUP_SCRIPTS = {
   'ui-craft:check': 'ui-craft check',
-  'contrast:check': 'contrast-guard check',
+  'contrast:check': 'ui-craft check',
 }
 
 export const CONFIG_TEMPLATE = {

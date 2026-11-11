@@ -73,7 +73,7 @@ rg -l -g '!node_modules' 'design-tokens|--color-|@theme' . | head
 
 ## Step 2.5 · 工程接线
 
-适用项目先读 [engineering.md](references/engineering.md) 并检查现有脚手架、CI 与观测工具；只补项目确实缺少的能力。Vite 项目可使用 `npx ui-craft setup --dry-run` 检查 CLI 接线方案（已有仓库仍可使用 `contrast-guard` 命令别名），再按项目需要接入检查脚本。其它框架按 [engineering.md](references/engineering.md#非-vite-项目手动等价方案) 使用对应等价方式。
+适用项目先读 [engineering.md](references/engineering.md) 并检查现有脚手架、CI 与观测工具；只补项目确实缺少的能力。Vite 项目可使用 `npx ui-craft setup --dry-run` 检查 CLI 接线方案（已有仓库仍可使用 `ui-craft` 命令别名），再按项目需要接入检查脚本。其它框架按 [engineering.md](references/engineering.md#非-vite-项目手动等价方案) 使用对应等价方式。
 
 ## Step 3 · 实现：只用 tokens
 

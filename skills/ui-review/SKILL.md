@@ -1,7 +1,7 @@
 ---
 name: ui-review
 version: 0.1.0
-description: "页面视觉质量评审——把「丑」翻译成可执行的整改条目。用 contrast-guard 做渲染后计量（字号集中度/灰阶层数/动效覆盖率/间距收敛）+ 当前环境浏览器截图，对照成因清单逐条定位到具体元素和该用的 token。与 frontend-e2e 互补：那个判对错（字段有没有、交互通不通），这个检验视觉假设（层级、留白与动效是否服务任务）。触发条件: 用户说页面丑/不好看/没设计感/太平/像模板、重设计前的现状评估、视觉巡检。触发词: 丑、难看、不好看、没设计感、AI 味、太平、像模板、视觉评审、UI 评审、视觉巡检、设计打磨。"
+description: "页面视觉质量评审——把「丑」翻译成可执行的整改条目。用 ui-craft 做渲染后计量（字号集中度/灰阶层数/动效覆盖率/间距收敛）+ 当前环境浏览器截图，对照成因清单逐条定位到具体元素和该用的 token。与 frontend-e2e 互补：那个判对错（字段有没有、交互通不通），这个检验视觉假设（层级、留白与动效是否服务任务）。触发条件: 用户说页面丑/不好看/没设计感/太平/像模板、重设计前的现状评估、视觉巡检。触发词: 丑、难看、不好看、没设计感、AI 味、太平、像模板、视觉评审、UI 评审、视觉巡检、设计打磨。"
 license: MIT
 author: cortexos
 category: software-development
@@ -46,16 +46,16 @@ CSS 里随机漂移——这是所有「AI 指导不动 UI」的直接原因。
 ### 1. 计量（拿数字，不靠肉眼）
 
 ```bash
-contrast-guard measure <url>                      # 判据 + 参考量
-contrast-guard measure <url> --vs <baseline>      # 与参照站基线逐项对比
-contrast-guard measure <url> --json               # 出 JSON，需要自己算的时候用
+ui-craft measure <url>                      # 判据 + 参考量
+ui-craft measure <url> --vs <baseline>      # 与参照站基线逐项对比
+ui-craft measure <url> --json               # 出 JSON，需要自己算的时候用
 ```
 
 渲染后计量：打开页面遍历所有可见元素的 `computedStyle`，统计实际生效值。
 输入只有 URL，**零项目知识**——React/Vue/Astro/纯 HTML 一视同仁，
 所以能用同一把尺子量自己的页面和参照站。
 
-计量 CLI 的真实参数以当前 `contrast-guard measure --help` 为准。基线选项目改前版本、设计契约或任务相关参照，并记录视口、状态和版本；没有合适基线时可收集现状，不伪造及格线。
+计量 CLI 的真实参数以当前 `ui-craft measure --help` 为准。基线选项目改前版本、设计契约或任务相关参照，并记录视口、状态和版本；没有合适基线时可收集现状，不伪造及格线。
 
 ### 2. 看图与交互
 
