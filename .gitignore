@@ -4,3 +4,4 @@ node_modules/
 .contrast-guard/
 .use_count
 .last_used
+.claude/
